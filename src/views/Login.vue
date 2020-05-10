@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   data () {
     return {
@@ -48,7 +49,11 @@ export default {
       iny: ''
     }
   },
+  computed: {
+    ...mapGetters(['username', 'password'])
+  },
   methods: {
+    ...mapMutations(['setLogin']),
     submitForm (formName) {
       this.$refs[formName].validate(valid => {
         // var vm = this
@@ -61,8 +66,8 @@ export default {
               password: this.form.password
             }
           }).then(res => {
-            // console.log(res.data.message)
             if (res.data.status === 200) {
+              this.setLogin(this.form.name)
               this.$message({
                 message: res.data.message,
                 type: 'success',
@@ -167,8 +172,8 @@ export default {
     top: 0;
     left: 0;
     display: block;
-    width: 1250px;
-    height: 1250px;
+    width: 1300px;
+    height: 1300px;
     border-radius: 50%;
     background: #ededed;
     transform: translate(-50%,-50%);
@@ -182,14 +187,14 @@ export default {
         height: 0;
     }
     100%{
-        width: 1250px;
-        height: 1250px;
+        width: 1300px;
+        height: 1300px;
     }
   }
   @keyframes out{
     0%{
-        width: 1250px;
-        height: 1250px;
+        width: 1300px;
+        height: 1300px;
     }
     100%{
         width: 0;
