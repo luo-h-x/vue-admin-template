@@ -6,13 +6,13 @@
       </div>
     </div>
     <div class="info-container">
-      <span>Admin: Edit your message</span>
-      <span> You can change any or all of the options for the link.</span>
+      <span>您好: {{username}}</span>
+      <span> Make a little progress every day.</span>
     </div>
     <div class="hare">
       <img src="../assets/hare.gif" >
     </div>
-    <a href="https://github.com/PanJiaChen/vue-element-admin"
+    <a href="https://github.com/luo-h-x/vue-admin-template"
       target="_blank" aria-label="View source on Github"
       class="github-corner"
       style="position: absolute; top: 0px; border: 0px; right: 0px;">
@@ -32,6 +32,11 @@
 
 <script>
 export default {
+  computed: {
+    username () {
+      return this.$store.getters.username
+    }
+  }
 }
 </script>
 
