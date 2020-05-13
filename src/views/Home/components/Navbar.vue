@@ -65,6 +65,7 @@ export default {
       this.isActive = !this.isActive
     },
     logout () {
+      sessionStorage.removeItem('loginusername')
       this.$router.push('/Login')
     },
     getBreadcrumb () {
