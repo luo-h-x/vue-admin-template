@@ -41,6 +41,9 @@ export default {
   },
   methods: {
     open (path) {
+      if (this.$store.state.ismobile) {
+        this.$store.commit('close')
+      }
       this.$router.push({
         path,
         query: {

@@ -2,7 +2,7 @@
   <div class="navbar">
     <div class="hamburger" @click="toggle">
       <svg
-        :class="{'is-active':isActive}"
+        :class="{'is-active':this.$store.state.show}"
         class="svg"
         viewBox="0 0 1024 1024"
         xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,6 @@
 export default {
   data () {
     return {
-      isActive: true,
       levelList: null
     }
   },
@@ -62,7 +61,7 @@ export default {
   },
   methods: {
     toggle () {
-      this.isActive = !this.isActive
+      this.$store.state.show = !this.$store.state.show
     },
     logout () {
       sessionStorage.removeItem('loginusername')
