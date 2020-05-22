@@ -20,5 +20,8 @@ html, body {
   padding: 0;
   height: 100%;
 }
+*{
+  -webkit-tap-highlight-color:rgba(0,0,0,0)
+}
 
 </style>
