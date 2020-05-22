@@ -1,5 +1,5 @@
 <template>
-<div style="overflow: hidden;">
+<div style="overflow: hidden; height: 100%;">
   <div class="container" @mouseenter="spani" @mouseleave="spanl">
     <h3>欢迎登录</h3>
     <el-form ref="form" label-width="80px" :model="form" >
@@ -50,13 +50,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['username', 'password'])
+    ...mapGetters(['username'])
   },
   methods: {
     ...mapMutations(['setLogin']),
     submitForm (formName) {
       this.$refs[formName].validate(valid => {
-        // var vm = this
         if (valid) {
           this.axios({
             method: 'post',
@@ -133,9 +132,11 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  margin: 150px auto 0;
+  box-sizing: border-box;
+  margin:160px auto 0;
   padding: 20px;
-  width: 500px;
+  width: 520px;
+  max-width: 100%;
   height: 320px;
   border: 1px solid #ebeef5;
   border-radius: 20px;
