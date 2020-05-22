@@ -6,7 +6,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     username: '',
-    password: ''
+    password: '',
+    show: false,
+    ismobile: false
   },
   getters: {
     username (state) {
@@ -17,6 +19,15 @@ export default new Vuex.Store({
     setLogin (state, val) {
       state.username = val
       sessionStorage.setItem('loginusername', val)
+    },
+    close (state) {
+      state.show = false
+    },
+    open (state) {
+      state.show = true
+    },
+    isMobile (state) {
+      state.ismobile = !state.ismobile
     }
   },
   actions: {
