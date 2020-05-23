@@ -67,7 +67,6 @@ const routes = [
     children: [
       {
         path: '404',
-        name: '404',
         component: () => import('../views/404'),
         meta: { login_require: true, title: '404' }
       }
