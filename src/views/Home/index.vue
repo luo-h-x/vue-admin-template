@@ -9,7 +9,7 @@
         <el-header style="padding: 0">
           <Navbar />
         </el-header>
-        <el-main style=" padding: 0">
+        <el-main style=" padding: 0px">
           <app-main/>
         </el-main>
       </el-container>
@@ -31,7 +31,11 @@ export default {
     window.removeEventListener('resize', this.resizeHandler)
   },
   mounted () {
-    this.resizeHandler()
+    const w = document.body.getBoundingClientRect().width
+    if (w < 996) {
+      this.isMobile()
+      this.close()
+    }
   },
   computed: {
     ...mapState(['show', 'ismobile']),
@@ -44,13 +48,14 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['close', 'isMobile']),
+    ...mapMutations(['close', 'isMobile', 'removeMobile']),
     resizeHandler () {
       const w = document.body.getBoundingClientRect().width
-      if (w < 996) {
+      if (w < 996 && !this.ismobile) {
         this.isMobile()
         this.close()
       } else {
+        this.removeMobile()
       }
     },
     handleClickOutside () {
