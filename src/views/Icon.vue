@@ -65,7 +65,6 @@ export default {
 
 <style lang="scss" scoped>
 .icon-list {
-  list-style: none;
   margin: 20px;
   border: 1px solid #eaeefb;
   border-radius: 4px;
@@ -77,6 +76,7 @@ export default {
     font-size: 14px;
     color: #5e6d82;
     line-height: 2em;
+    list-style: none;
 
     li {
       float: left;
