@@ -43,7 +43,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   position: relative;
-  padding: 50px;
+  padding: 20px;
   background: #e3ad98;
   min-height: calc(100vh - 60px);
 
@@ -96,8 +96,13 @@ export default {
 
   .hare img {
     display: block;
-    width: 45%;
+    width: 70%;
     margin: 0 auto;
+  }
+}
+@media (max-width: 750px) {
+  .info-container {
+    display: none;
   }
 }
 </style>
