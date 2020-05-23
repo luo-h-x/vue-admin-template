@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     username: '',
     password: '',
-    show: false,
+    show: true,
     ismobile: false
   },
   getters: {
@@ -27,7 +27,10 @@ export default new Vuex.Store({
       state.show = true
     },
     isMobile (state) {
-      state.ismobile = !state.ismobile
+      state.ismobile = true
+    },
+    removeMobile (state) {
+      state.ismobile = false
     }
   },
   actions: {
