@@ -131,77 +131,70 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  box-sizing: border-box;
-  margin:160px auto 0;
-  padding: 20px;
-  width: 520px;
-  max-width: 100%;
-  height: 320px;
-  border: 1px solid #ebeef5;
-  border-radius: 20px;
-  box-shadow: 0 0 20px #ebeef5;
-  position: relative;
-  overflow: hidden;
+// .container {
+//   box-sizing: border-box;
+//   margin:160px auto 0;
+//   padding: 20px;
+//   width: 520px;
+//   max-width: 100%;
+//   height: 320px;
+//   border: 1px solid #ebeef5;
+//   border-radius: 20px;
+//   box-shadow: 0 0 20px #ebeef5;
+//   position: relative;
+//   overflow: hidden;
 
-  h3 {
-    text-align: center;
-  }
+//   h3 {
+//     text-align: center;
+//   }
 
-  .el-button {
-    width: calc(100% - 80px);
-    margin: 0 80px 20px 80px;
-  }
+//   .el-button {
+//     width: calc(100% - 80px);
+//     margin: 0 80px 20px 80px;
+//   }
+// }
+@media screen and (min-width: 300px) {
+  .container {
+    box-sizing: border-box;
+    margin:100px auto 0;
+    padding: 20px;
+    max-width: 100%;
+    height: 320px;
+    position: relative;
+    overflow: hidden;
 
-  .in{
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: #ededed;
-    transform: translate(-50%,-50%);
-    /* 使用in动画，持续0.5s,缓出的时间函数，停留在最后一帧 */
-    animation: in 0.5s ease-out forwards;
-    z-index:-1;
-  }
-
-  .out{
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 1300px;
-    height: 1300px;
-    border-radius: 50%;
-    background: #ededed;
-    transform: translate(-50%,-50%);
-    animation: out 0.5s ease-out forwards;
-    z-index:-1;
-  }
-
-  @keyframes in{
-    0%{
-        width: 0;
-        height: 0;
+    h3 {
+      text-align: center;
     }
-    100%{
-        width: 1300px;
-        height: 1300px;
-    }
-  }
-  @keyframes out{
-    0%{
-        width: 1300px;
-        height: 1300px;
-    }
-    100%{
-        width: 0;
-        height: 0;
+
+    .el-button {
+      width: calc(100% - 80px);
+      margin: 0 80px 20px 80px;
     }
   }
 }
+@media screen and (min-width: 900px) {
+  .container {
+    box-sizing: border-box;
+    margin:160px auto 0;
+    padding: 20px;
+    width: 520px;
+    max-width: 100%;
+    height: 320px;
+    border: 1px solid #ebeef5;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #ebeef5;
+    position: relative;
+    overflow: hidden;
 
+    h3 {
+      text-align: center;
+    }
+
+    .el-button {
+      width: calc(100% - 80px);
+      margin: 0 80px 20px 80px;
+    }
+  }
+}
 </style>
