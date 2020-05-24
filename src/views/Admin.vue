@@ -96,7 +96,7 @@ export default {
 
   .hare img {
     display: block;
-    width: 70%;
+    width: 50%;
     margin: 0 auto;
   }
 }
@@ -104,5 +104,11 @@ export default {
   .info-container {
     display: none;
   }
+  .container .hare img {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    }
+
 }
 </style>
