@@ -1,27 +1,29 @@
 <template>
   <div class="sidebar-container">
     <el-scrollbar wrap-class="scrollbar-wrapper" >
-      <el-menu default-active="1" background-color="#304156"  text-color="#fffffc">
-        <el-menu-item
-          v-for="(value, index) in sidebar"
-          :key="index"
-          :index="value.title"
-          @click="open(value.path)">
-          <i :class="value.icon"></i>
-          <span>{{value.title}}</span>
-        </el-menu-item>
-        <el-submenu index="1">
-          <template slot="title">
-            <i class="el-icon-s-data"></i>
-            <span>数据</span>
-          </template>
-          <router-link to="/Data/Tree" style="display: block">
-            <el-menu-item index="2-2">Tree树形控件</el-menu-item>
-          </router-link>
-          <router-link to="/Data/Table">
-            <el-menu-item index="2-1">Table表格</el-menu-item>
-          </router-link>
-        </el-submenu>
+      <el-menu :default-active="title" background-color="#304156"  text-color="#fffffc">
+        <div v-for="(value, index) in sidebar" :key="index">
+          <el-menu-item
+            v-if="!value.children"
+            :index="value.title"
+            @click="open(value.path)">
+            <i :class="value.icon"></i>
+            <span>{{value.title}}</span>
+          </el-menu-item>
+          <el-submenu v-else :index="value.title">
+            <template slot="title">
+              <i :class="value.icon"></i>
+              <span>{{value.title}}</span>
+            </template>
+            <el-menu-item
+              v-for="(item, len) in value.children"
+              :key="len"
+              :index="item.title"
+              @click="open(item.path)">
+              {{item.title}}
+            </el-menu-item>
+          </el-submenu>
+        </div>
       </el-menu>
     </el-scrollbar>
   </div>
@@ -35,9 +37,27 @@ export default {
         { title: '首页', icon: 'el-icon-menu', path: '/' },
         { title: 'From表单', icon: 'el-icon-s-order', path: '/From' },
         { title: 'Icon图标', icon: 'el-icon-document', path: '/Icon/index' },
-        { title: '错误页面', icon: 'el-icon-error', path: '/error/404' }
-      ]
+        { title: '错误页面', icon: 'el-icon-error', path: '/error/404' },
+        {
+          title: '数据',
+          icon: 'el-icon-s-data',
+          children:
+          [
+            { title: 'Tree树形控件', icon: 'el-icon-error', path: '/Data/Tree' },
+            { title: 'Table表格', icon: 'el-icon-error', path: '/Data/Table' }
+          ]
+        }
+      ],
+      title: null
     }
+  },
+  watch: {
+    $route () {
+      this.getTitle()
+    }
+  },
+  created () {
+    this.getTitle()
   },
   methods: {
     open (path) {
@@ -50,6 +70,10 @@ export default {
           t: +new Date()
         }
       })
+    },
+    getTitle () {
+      this.title = this.$route.meta.title
+      // console.log(this.title)
     }
   }
 }
