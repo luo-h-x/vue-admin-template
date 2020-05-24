@@ -67,11 +67,11 @@ export default {
       this.$router.push('/Login')
     },
     getBreadcrumb () {
-      let matched = this.$route.matched.filter(item => item.meta && item.meta.title)
+      // let matched = this.$route.matched.filter(item => item.meta && item.meta.title)
 
-      matched = [{ path: '/', meta: { title: '首页' } }].concat(matched)
+      // matched = [{ path: '/', meta: { title: '首页' } }].concat(matched)
 
-      this.levelList = matched.filter(item => item.meta && item.meta.title)
+      this.levelList = this.$route.matched.filter(item => item.meta && item.meta.title)
     },
     handleLink (path) {
       this.$router.push(path.path).catch((e) => {})
