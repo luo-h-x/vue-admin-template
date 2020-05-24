@@ -20,7 +20,7 @@ const routes = [
         path: '/Admin',
         name: 'Admin',
         component: () => import('../views/Admin'),
-        meta: { login_require: true }
+        meta: { login_require: true, title: '首页' }
       }
     ]
   },
@@ -36,7 +36,7 @@ const routes = [
       {
         path: '/From',
         component: () => import('../views/From'),
-        meta: { login_require: true, title: 'from表单' }
+        meta: { login_require: true, title: 'From表单' }
       }
     ]
   },
@@ -51,13 +51,13 @@ const routes = [
         path: 'Table',
         name: 'Table',
         component: () => import('../views/Table'),
-        meta: { login_require: true, title: 'table表格' }
+        meta: { login_require: true, title: 'Table表格' }
       },
       {
         path: 'Tree',
         name: 'Tree',
         component: () => import('../views/Tree'),
-        meta: { login_require: true, title: 'tree树形控件' }
+        meta: { login_require: true, title: 'Tree树形控件' }
       }
     ]
   },
@@ -68,7 +68,7 @@ const routes = [
       {
         path: '404',
         component: () => import('../views/404'),
-        meta: { login_require: true, title: '404' }
+        meta: { login_require: true, title: '错误页面' }
       }
     ]
   },
@@ -79,7 +79,7 @@ const routes = [
       {
         path: 'index',
         component: () => import('../views/Icon'),
-        meta: { login_require: true, title: 'icon图标' }
+        meta: { login_require: true, title: 'Icon图标' }
       }
     ]
   },
