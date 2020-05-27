@@ -48,14 +48,15 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['close', 'isMobile', 'removeMobile']),
+    ...mapMutations(['close', 'open', 'isMobile', 'removeMobile']),
     resizeHandler () {
       const w = document.body.getBoundingClientRect().width
-      if (w < 996 && !this.ismobile) {
+      if (w > 996 && this.ismobile) {
+        this.removeMobile()
+        this.open()
+      } else {
         this.isMobile()
         this.close()
-      } else {
-        this.removeMobile()
       }
     },
     handleClickOutside () {
